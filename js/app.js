@@ -1,6 +1,5 @@
 
-
-import * as UI from './interfaz.js';
+import { formularioBuscar } from "./interfaz.js";
 
 
 UI.formularioBuscar.addEventListener('submit', buscarCancion);
@@ -20,8 +19,24 @@ UI.formularioBuscar.addEventListener('submit', buscarCancion);
 
          UI.divMensajes.textContent = 'Error... Todos los campos son obligatorios';
          UI.divMensajes.classList.add('error');
+
+
+         setTimeout(() => {
+             UI.divMensajes.textContent = '';
+             UI.divMensajes.classList.remove('error');
+         }, 3000);
      }
+
+     return;
      
  }
+
+
+ //Consultar API
+
+ const busqueda = new API(artista, cancion);
+
+
+ console.log (busqueda);
 
 
